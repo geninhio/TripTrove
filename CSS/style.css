@@ -1,0 +1,231 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.navigation {
+    /* background-color: red; */
+    background-image: url(Images/cameroun.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    height: 50px;
+    flex: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 1em;
+    margin-left: 4em;
+    margin-right: 4em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navigation a,span {
+    color: #f7ecec;
+    text-decoration: none;
+
+    display: inline-block;
+    text-align: center;
+}
+.navigation span {
+    padding-left: 1em;
+}
+.navigation .déroulant:hover .déroulantMenu {
+    display: block;
+}
+
+.déroulantMenu a {
+    display: block;
+    float: none;
+    color: rgb(244, 255, 255);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    text-decoration: none;
+    text-align: left;
+    font-size: medium;
+    border-radius: 10px;
+}
+
+.déroulantMenu a:hover {
+    background-color: rgb(136, 4, 4);
+}
+
+.déroulantMenu  {
+    position: absolute;
+    /* background-color: red; */
+    background-image: url(Images/cameroun.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100%;
+    display: none;
+    min-width: 1em;
+    border-radius: 25px;
+}
+
+header {
+
+    background-color: red;
+
+}
+
+.entete {
+    
+}
+
+header h1 {
+    width: 40%;
+    text-align: end;
+}
+
+.texte-resume {
+    width: 40%;
+    margin: 5%;
+}
+
+.imageSite {
+    width: 100%;
+    height: 78%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-color: yellow;
+}
+
+.conteneurOffres {
+    margin-left: 4em;
+    margin-right: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.offres {
+    border-radius: 0.65em;
+    border: solid;
+    border-color: rgb(253, 253, 252);
+    border-width: 0em;
+    box-shadow: 0em 0.25em 0.25em 0.25em rgb(148, 147, 147);
+    width: 25%;
+    
+}
+
+.offresPieds {
+    height: 31%;
+    border: solid;
+    border-radius: 0.5em;
+    border-width: 0.15em;
+    border-color: rgb(154, 154, 158); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.offresCorps {
+    height: 65%;
+    
+    border-color: rgb(9, 243, 48);
+}
+
+.titre {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: ruby-base-container;
+    
+}
+
+.environ {
+    color: black;
+    margin-left: 0.2em;
+    margin-top: 0.1em;
+}
+
+.prix {
+    width: 100%;
+    height: 60%;
+
+}
+
+.prix h3,p {
+    margin-left: 0.2em;
+}
+
+.titrePrix {
+    /* margin-top: 0em;
+    margin-left: 0.25em; */
+    /* position: absolute; */
+    text-decoration: none;
+}
+
+.btnTitre {
+    border-style: none;
+    border-width: 0px;
+    width: 100%;
+    height: 23%;
+    padding: 0px;
+    background-color: rgb(253, 253, 252);
+}
+
+.consulter {
+   
+    width: 95%;
+    height: 20%;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 0.25em;
+    background-color: #f7ecec;
+    border-radius: 0.5em;
+    box-shadow: none;
+
+}
+
+.conteneurRecherche  {
+    margin-left: 0em;
+    margin-right: 0em;
+    margin-top: 1em;
+    padding: 5em;
+    width: 40%;
+    height: 10%;
+}
+
+.conteneurRecherche div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recherche {
+    width: 75%;
+    height: 10%;
+}
+
+.btnRecherche {
+    width: 25%;
+}
+
+.GrandConteneurOffres h1{
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.piedsDePage {
+    background-image: url(Images/cameroun.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
