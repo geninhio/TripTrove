@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/offres.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -51,13 +52,12 @@
                 <a href="">Déconnexion</a>
             </div>
         </div>
-        <script src="./JS/formulaires.js"></script>
     </div>
     
     <main>
         <div class="conteneurRecherche">
             <div action="">
-                <input type="text"  placeHolder="Où allez-vous ?" class="recherche">
+                <input type="text"  placeHolder="Où allez-vous ?" id="recherche" class="recherche" onchange='Filtrer()'>
                 <button type="submit" class="btnRecherche">Rechercher</button>
             </div>
         </div>
