@@ -1,21 +1,7 @@
-function AfficherLesOptions(identifiant) {
-    let parent = document.getElementById(identifiant);
-
-    if (document.getElementById(identifiant + "enfant") != null) {
-        return;
-    }
-
-    let div = document.createElement('div');
-    div.setAttribute('id', identifiant + "enfant");
-    //div.setAttribute('style', './CSS/styleOptions.css');
-    //div.setAttribute('class', 'options');
-    let positionX = parent.offsetLeft;
-    let positionY = parent.offsetTop;
-
-
-    div.offsetLeft = positionX;
-    div.offsetTop = positionY + document.getElementsByTagName('nav').offetHeight
-    AjouterLesOptions(identifiant);
+function Filtrer() {
+    let parent = document.getElementById("recherche");
+    let filtre = parent.value;
+    console.log(filtre);
 
 }
 
