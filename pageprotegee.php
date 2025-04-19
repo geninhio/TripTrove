@@ -1,4 +1,10 @@
 <?php
+        require_once __DIR__."/Controller/SessionFinale.php";
+    
+        $session = new SessionFinale();
+        session_start();
+        $session->validerSession();
+
     $sites = array(
         "site" => array("Tagidor, Bangou, Cameroun", "Kribi, plage, Cameroun", "sultanat, foumban, Cameroun"),
         "image" => array("./Images/Tagidor-1.png", "./Images/Image-Kribi.jpg", "./Images/camaroun-sultanat-foumban.jpg"),
@@ -25,7 +31,7 @@
     </header>
 
     <div class="navigation" >
-        <a href="index.php">Accueil</a>
+        <a href="pageprotegee.php">Accueil</a>
         <div class="déroulant" >
             <span>Mes réservations&nbsp;</span>
 

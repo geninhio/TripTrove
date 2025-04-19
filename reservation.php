@@ -26,7 +26,7 @@
     </header>
 
     <div class="navigation" >
-        <a href="index.php">Accueil</a>
+        <a href="pageprotegee.php">Accueil</a>
         <div class="déroulant" >
             <span>Mes réservations&nbsp;</span>
 

@@ -1,12 +1,25 @@
 
+const offresBackup = document.querySelectorAll(".offres");
+const conteneur = document.querySelectorAll(".conteneurOffres");
+let bannisTemporaire = [];
+let indexBannis = [];
+
 function Filtrer() {
-    let bannisTemporaire = [];
-    let indexBannis = [];
-    let parent = document.getElementById("recherche");
-    let filtre = parent.value;
+    let parentFiltre = document.getElementById("recherche");
+    let filtre = parentFiltre.value;
     const offres = document.querySelectorAll(".offres");
-    const conteneur = document.querySelectorAll(".conteneurOffres");
     console.log(filtre);
+
+    if (filtre == null) {
+        offres = offresBackup;
+        while (conteneur[0].firstChild) {
+            conteneur[0].removeChild(lastChild);
+        }
+        
+        for (const offre of offres) {
+            conteneur[0].appendChild(lastChild)
+        }
+    }
 
     for (const offre of offres) {
         let titre = offre.children[0].children[1].children[0].children[0].children[0].textContent;
@@ -15,28 +28,21 @@ function Filtrer() {
             bannisTemporaire.push(offre);
             indexBannis.push(Array.from(offres).indexOf(offre)); 
         }
-        else {
-            console.log("N'est pas bannie!");
-        }
         
     }
     console.log(bannisTemporaire);
     console.log(indexBannis);
 
-    if (bannisTemporaire.length == 0) {
+    if (bannisTemporaire.length == offres.length) {
         
+        alert("Nous n'avons pas d'offres pour cette recherche!!!");
         return;
     }
 
     for (const offre of bannisTemporaire) {
         conteneur[0].removeChild(offre);
     }
-   
-
-}
-
-function RecupererLesTitres() {
-
+    bannisTemporaire = [];
 
 }
 
