@@ -1,4 +1,5 @@
 
+
 const offresBackup = document.querySelectorAll(".offres");
 const conteneur = document.querySelectorAll(".conteneurOffres");
 let bannisTemporaire = [];
@@ -44,7 +45,7 @@ function Filtrer() {
     }
     bannisTemporaire = [];
 
-}
+
 
 function EnleverLesOptions(identifiant) {
     //let parent = document.getElementById(identifiant);
