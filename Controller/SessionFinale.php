@@ -10,9 +10,10 @@ class SessionFinale extends Session
      * Initialise les paramètres de session.
      */
     public function __construct()
-    {        
+    {      
+        require_once __DIR__."/../config.bd.include.php";   
         session_name("finale");
-        parent::__construct();      
+        parent::__construct(DUREE_SESSIONFINALE);      
     }
 
 
@@ -41,13 +42,13 @@ class SessionFinale extends Session
                 {
                     $this->supprimer();
                     error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/14avril2025.acces.log");
-                    header("Location: /../login.php");
+                    header("Location: login.php");
                     exit();
 
                 } elseif ((time() - $_SESSION['delai']) > 60*2) {
                     $this->supprimer();
                     error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER['REMOTE_ADDR']."Client authorisé: ".$_SESSION['courriel']."\n\r" ,3, __DIR__."/../../../logs/14avril2025.acces.log");
-                    header("Location: /../login.php");
+                    header("Location: login.php");
                     exit();
                     
                 }

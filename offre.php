@@ -1,4 +1,10 @@
 <?php
+    require_once __DIR__."/Controller/SessionFinale.php";
+
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
+
     $offre = filter_input(INPUT_GET, "choix");
 
     $sites = array(
@@ -67,10 +73,10 @@
         <?php
             echo '<div class="titre">
             <h1>'.$sites["site"][$offre].'</h1>
-            <button type="submit">Reserver</button>
+            <button type="submit"><a href="./ajoutReservation.php">Reserver</a></button>
             </div>';
 
-            foreach ($listeOffres[$offre] as $value) {
+            foreach ($listeOffres[$offre] as $valeur) {
                 echo '<div class="resume-forward">
             <div class="texte-resume">
             <h1>'.$valeur.'</h1>

@@ -5,11 +5,11 @@ abstract class Session
     /**
      * Initialise les paramètres de session.
      */
-    public function __construct()
+    public function __construct($duree)
     {
         require_once __DIR__."/../config.bd.include.php";
                 
-        ini_set("session.cookie_lifetime", DUREE_SESSION); // Durée de la session en secondes
+        ini_set("session.cookie_lifetime", $duree); // Durée de la session en secondes
         ini_set("session.use_cookies", 1);
         ini_set("session.use_only_cookies" , 1);
         ini_set("session.use_strict_mode", 1);
