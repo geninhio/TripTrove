@@ -65,6 +65,25 @@ class SelectUtilisateur extends Select
         }        
     }
 
+    public function selectReservations(){
+
+        try {
+            $userCourant = $this->select();
+            
+            $pdoRequete = $this->connexion->prepare("select * from DateReservation where IdUtilisateur =:id");
+            $pdoRequete->bindParam(":id",$userCourant->getId(),PDO::PARAM_INT);
+
+            $pdoRequete->execute();
+
+            $resultat = $pdoRequete->fetchAll(PDO::FETCH_OBJ);
+
+            return $resultat;
+
+        } catch (Exception $e) {
+            error_log("Exception pdo: ".$e->getMessage());
+        }   
+    }
+
     /**
      * Sélection de plusieurs users
      */

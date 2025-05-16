@@ -60,4 +60,21 @@ class Insert {
 
     }
 
+    public function InsererReservation($idSite, $idUtilisateur, $dateReservation){
+
+        try {
+            $id = 0;
+            $pdoRequete = $this->connexion->prepare("insert into DateReservation values(:id, :idSite, :idUtilisateur, :dateReservation)");
+            $pdoRequete->bindParam(":id", $id, PDO::PARAM_INT);
+            $pdoRequete->bindParam(":idSite", $idSite, PDO::PARAM_INT);
+            $pdoRequete->bindParam(":idUtilisateur", $idUtilisateur, PDO::PARAM_INT);
+            $pdoRequete->bindParam(":dateReservation", $dateReservation, PDO::PARAM_STR);
+
+            $pdoRequete->execute();
+
+        } catch (Exception $e) {
+            error_log("Exception pdo: ".$e->getMessage());
+        }  
+
+    }
 }

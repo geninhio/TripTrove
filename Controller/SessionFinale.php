@@ -20,14 +20,16 @@ class SessionFinale extends Session
     /**
      * Affecte les valeurs nécessaires à la validation de la session complète.
      */
-    public function setSession(string $p, string $code, string $remote)
+    public function setSessionFinale(string $p, string $remote)
     {
         $_SESSION['pseudo'] = $p;
-        $_SESSION['code'] = $code;
         $_SESSION['ip'] = $remote;
         $_SESSION['delai'] = time();
     }
 
+    public function setSessionIntermediaire(string $p, string $code, string $remote){
+        null;
+    }
 
     /**
      * Récupère la session active et vérifie la validité avec les variables $_SESSSION
@@ -38,7 +40,7 @@ class SessionFinale extends Session
         {
             if (session_status() == PHP_SESSION_ACTIVE){
                 
-                if (!isset($_SESSION['code']) || !isset($_SESSION['ip']) || !isset($_SESSION['delai']))
+                if (!isset($_SESSION['pseudo']) || !isset($_SESSION['ip']) || !isset($_SESSION['delai']))
                 {
                     $this->supprimer();
                     error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/14avril2025.acces.log");

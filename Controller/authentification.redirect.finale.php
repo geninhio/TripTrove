@@ -25,7 +25,7 @@ if (!empty($_POST['code']))
 
         $session = new SessionFinale();
         session_start();
-        $session->setSession($pseudo, $code, $_SERVER['REMOTE_ADDR']);
+        $session->setSessionFinale($pseudo, $_SERVER['REMOTE_ADDR']);
 
         header("Location: ./../pageprotegee.php");
     }else 

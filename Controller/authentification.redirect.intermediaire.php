@@ -36,7 +36,7 @@ if (!empty($_POST['pseudo']) and !empty($_POST['mdp']))
         $code = (string)rand(100000,999999);
         $session = new SessionIntermediaire();
         session_start();
-        $session->setSession($pseudo, $code, $_SERVER['REMOTE_ADDR']);
+        $session->setSessionIntermediaire($pseudo, $code, $_SERVER['REMOTE_ADDR']);
 
         EnvoyerMail($courriel, "Votre code est : ".$code);
 
