@@ -36,8 +36,8 @@ if (!empty($_POST['code']))
 
 }else 
 {
-    error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormal - mail ou mdp absent: Client ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/14avril2025.acces.log");
-    header("Location: ../views/erreur.php");
+    error_log("[".date("d/m/o H:i:s e",time())."] Authentification anormal - code de vérification absent: Client ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/TripTrove.acces.log");
+    header("Location: ./../erreur.php");
 }
 
 

@@ -6,14 +6,17 @@ include_once __DIR__.'/repository/SelectUtilisateur.classe.php';
 $selecteur = new SelectSite();
 $utilisateur = new SelectUtilisateur("aloy");
 
+$nbre = $utilisateur->selectNombreUtilisateur();
+var_dump($nbre->NbrePseudo);
+
 $resultat = $utilisateur->selectReservations();
 
 foreach ($resultat as $reservation) {
     $reservation = json_decode(json_encode($reservation), true);
-    var_dump($reservation);
+    // var_dump($reservation);
 }
 
-var_dump($resultat);
+header("Location: ./historique.php");
 
 
 $resultat = $selecteur->selectMultiple();

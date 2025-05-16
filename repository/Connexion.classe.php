@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__."/../config.bd.include.php"; // Extérieur au dossier public:  /home/user/dossierConfigApp
+require_once __DIR__."/../../../config.bd.include.php"; // Extérieur au dossier public:  /home/user/dossierConfigApp
 
 class Connexion
 {

@@ -7,7 +7,7 @@ abstract class Session
      */
     public function __construct($duree)
     {
-        require_once __DIR__."/../config.bd.include.php";
+        require_once __DIR__."/../../../config.bd.include.php";
                 
         ini_set("session.cookie_lifetime", $duree); // Durée de la session en secondes
         ini_set("session.use_cookies", 1);

@@ -1,3 +1,8 @@
+<?php
+    $erreur = $_GET["erreur"];
+    $pseudo = $_GET["pseudo"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,17 @@
 </head>
 <body>
     <main>
+        <?php
+            if (!($erreur == null)) {
+                
+                echo'<div style="display: flex; flex-direction: row; justify-content: center;">
+                <h3 style="color:rgb(189, 10, 10); display: inline">Attention ce pseudo est déjà pris!!!</h3></div>';
+            }else {
+                echo'<div style="display: flex; flex-direction: row; justify-content: center;">
+                <h3 style="color:rgb(189, 10, 10); display: none">Attention ce pseudo est déjà pris!!!</h3></div>';
+            }
+
+        ?>
         <div class="conteneur">
             <h2>Créer un Compte</h2>
             <form action="./gestionCreationCompte.php" method="Post">
@@ -15,7 +31,13 @@
                     <legend>Informations personnelles</legend>
                     <div>
                         <label for="pseudo">Pseudo :</label>
-                        <input type="text" id="pseudo" name="pseudo" required>
+                        <?php
+                            if (!($erreur == null)) {
+                                echo '<input type="text" id="pseudo" name="pseudo" value="'.$pseudo.'" required>';
+                            }else {
+                                echo '<input type="text" id="pseudo" name="pseudo" required>';
+                            }
+                        ?>
                     </div>
 
                     <div>

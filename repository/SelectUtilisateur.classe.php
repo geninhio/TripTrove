@@ -43,6 +43,24 @@ class SelectUtilisateur extends Select
         }        
     }
 
+    public function selectNombreUtilisateur(){
+
+        try {
+            $pdoRequete = $this->connexion->prepare("select COUNT(Pseudo) as NbrePseudo from `Utilisateur` where Utilisateur.Pseudo = :pseudo");
+    
+            $pdoRequete->bindParam(":pseudo",$this->pseudo,PDO::PARAM_STR);
+        
+            $pdoRequete->execute();
+    
+            $resultat = $pdoRequete->fetch(PDO::FETCH_OBJ);
+
+            return $resultat;
+    
+        } catch (Exception $e) {
+            error_log("Exception pdo: ".$e->getMessage());
+        }  
+    }
+
     public function selectCourrielUtilisateur()
     {
         try {

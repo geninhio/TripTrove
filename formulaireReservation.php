@@ -1,21 +1,13 @@
 <?php
-    include_once __DIR__.'/repository/SelectSite.classe.php';
+    include_once __DIR__.'/html/elementHTML.include.php';;
 
     $id = filter_input(INPUT_POST,"offre", FILTER_DEFAULT) + 1;
 
-    $selecteur = new SelectSite();
-
-    $valeur = $selecteur->selectUnSite($id);
-    $valeur = json_decode(json_encode($valeur), true);
-    $prix = $valeur["prix"];
-    $prix = substr($prix, 0, 3);
-    $prix = (int)$prix;
-    $titre = $valeur["NomSite"]." ".$valeur["NomVille"]." ".$valeur["NomPays"];
-    $idSite = $valeur["IdSite"];
-    $date = $valeur["date"];
-
-    var_dump($valeur);
-    var_dump($idSite);
+    $infos = ObtenirInfoPourFormulaire($id);
+    $prix = $infos["prix"];
+    $titre = $infos["titre"];
+    $idSite = $infos["idSite"];
+    $date = $infos["date"];
 
 ?>
 
@@ -71,8 +63,8 @@
                 <fieldset>
                     <legend>Informations personnelles</legend>
                     <div>
-                        <label for="Pseudo">Nom :</label>
-                        <input type="text" id="nom" name="nom" required>
+                        <label for="Pseudo">Pseudo :</label>
+                        <input type="text" id="pseudo" name="pseudo" required>
                     </div>
 
                     <div>
@@ -105,12 +97,12 @@
                     <legend>Options supplémentaires</legend>
                     <div>
                     <label for="transport">Transport :</label>
-                        <input type="checkbox" id="transport" name="options" value="transport" required>
+                        <input type="checkbox" id="transport" name="options" value="transport">
                     </div>
 
                     <div>
                         <label for="repas">Repas inclus :</label>
-                        <input type="checkbox" id="repas" name="options" value="repas" required>
+                        <input type="checkbox" id="repas" name="options" value="repas">
                     </div>
                 </fieldset>
 

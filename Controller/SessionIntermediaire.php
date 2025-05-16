@@ -11,7 +11,7 @@ class SessionIntermediaire extends Session
      */
     public function __construct()
     {    
-        require_once __DIR__."/../config.bd.include.php";     
+        require_once __DIR__."/../../../config.bd.include.php";     
         session_name("intermediaire");
         parent::__construct(DUREE_SESSIONINTERMEDIAIRE);      
     }
@@ -44,13 +44,13 @@ class SessionIntermediaire extends Session
                 if (!isset($_SESSION['pseudo']) || !isset($_SESSION['code']) || !isset($_SESSION['ip']) || !isset($_SESSION['delai']))
                 {
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/14avril2025.acces.log");
+                    error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../../logs/TripTrove.session.log");
                     header("Location: login.php");
                     exit();
 
                 } elseif ((time() - $_SESSION['delai']) > 60*2) {
+                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER['REMOTE_ADDR']."Client authorisé: ".$_SESSION['pseudo']."\n\r" ,3, __DIR__."/../../../logs/TripTrove.session.log");
                     $this->supprimer();
-                    error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER['REMOTE_ADDR']."Client authorisé: ".$_SESSION['courriel']."\n\r" ,3, __DIR__."/../../../logs/14avril2025.acces.log");
                     header("Location: login.php");
                     exit();
                     

@@ -217,3 +217,26 @@ function RemplirOffre($id){
 
     return $html;
 }
+
+function ObtenirInfoPourFormulaire($id){
+
+    $selecteur = new SelectSite();
+
+    $valeur = $selecteur->selectUnSite($id);
+    $valeur = json_decode(json_encode($valeur), true);
+    $prix = $valeur["prix"];
+    $prix = substr($prix, 0, 3);
+    $prix = (int)$prix;
+    $titre = $valeur["NomSite"]." ".$valeur["NomVille"]." ".$valeur["NomPays"];
+    $idSite = $valeur["IdSite"];
+    $date = $valeur["date"];
+
+    $infos = array(
+        "prix" => $prix ,
+        "titre" => $titre,
+        "idSite" => $idSite,
+        "date" => $date
+    );
+
+    return $infos;
+}
