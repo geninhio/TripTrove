@@ -25,8 +25,14 @@ if (!empty($_POST['pseudo']) and !empty($_POST['mdp']))
     /**
      * Requête sur la bd avec le pseudo
      */
-    $requeteUtilisateur = new SelectUtilisateur($pseudo); //courriel reçu de la requête http
+    $requeteUtilisateur = new SelectUtilisateur($pseudo);
     $user = $requeteUtilisateur->select();
+
+    if ($user == null) {
+        header("Location: ./../login.php?erreur=Utilisateur&&pseudo=$pseudo");
+        exit(); 
+    }
+
     $courriel = $requeteUtilisateur->selectCourrielUtilisateur();
 
     if (password_verify($mdp, $user->getMdp()))
@@ -44,7 +50,7 @@ if (!empty($_POST['pseudo']) and !empty($_POST['mdp']))
     }else 
     {
         //Mauvais mot de passe, rediriger
-        header("Location: ./../login.php");
+        header("Location: ./../login.php?mdp=oui&&pseudo=$pseudo");
     }
 
 }else 

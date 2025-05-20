@@ -1,8 +1,13 @@
 <?php
-require_once __DIR__."/repository/SelectUtilisateur.classe.php";
+    require_once __DIR__."/repository/SelectUtilisateur.classe.php";
+    require_once __DIR__."/Controller/SessionFinale.php";
+    
 
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
 
-
+    $pseudo = $_SESSION['pseudo']
 
 ?>
 
@@ -30,20 +35,12 @@ require_once __DIR__."/repository/SelectUtilisateur.classe.php";
                 <a href="reservation.php">Nouvelle réservation</a>
             </div>
         </div>
-        <!-- <div class="déroulant" >
-            <span href="">Paramètres</span>
 
-            <div class="déroulantMenu">    
-                <a href="">Notifications</a>
-                <a href="">Favoris</a>
-                <a href="">Langue</a>
-            </div>
-        </div> -->
         <div class="déroulant" >
-            <span href="">Gérer mon compte</span>
+            <span >Gérer mon compte</span>
 
             <div class="déroulantMenu">    
-                <a href="">Déconnexion</a>
+                <a href="deconnexion.php">Déconnexion</a>
             </div>
         </div>
         <script src="./JS/formulaires.js"></script>
@@ -57,9 +54,9 @@ require_once __DIR__."/repository/SelectUtilisateur.classe.php";
                 <?php
                     include_once __DIR__.'/html/elementHTML.include.php';
 
-                    if(!(ObtenirReservations("aloy") == "")){
+                    if(!(ObtenirReservations($pseudo) == "")){
 
-                        echo ObtenirReservations("aloy");
+                        echo ObtenirReservations($pseudo);
                     }
                     else {
                         echo "<h1>Vous n'avez pas encore éffectué de reservations!!!";

@@ -7,7 +7,7 @@ $selecteur = new SelectSite();
 $utilisateur = new SelectUtilisateur("aloy");
 
 $nbre = $utilisateur->selectNombreUtilisateur();
-var_dump($nbre->NbrePseudo);
+// var_dump($nbre->NbrePseudo);
 
 $resultat = $utilisateur->selectReservations();
 
@@ -16,7 +16,7 @@ foreach ($resultat as $reservation) {
     // var_dump($reservation);
 }
 
-header("Location: ./historique.php");
+// header("Location: ./historique.php");
 
 
 $resultat = $selecteur->selectMultiple();
@@ -136,7 +136,12 @@ $rand_keys = array_rand($input, 2);
 //     }
 
 
+$requeteUtilisateur = new SelectUtilisateur("abel");
+$utilisateur = $requeteUtilisateur->select();
+$id = $utilisateur->getId();
 
+var_dump($utilisateur);
+var_dump($id);
 
 
 

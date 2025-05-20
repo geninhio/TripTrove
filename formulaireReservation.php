@@ -1,6 +1,14 @@
 <?php
-    include_once __DIR__.'/html/elementHTML.include.php';;
+    include_once __DIR__.'/html/elementHTML.include.php';
+    require_once __DIR__."/Controller/SessionFinale.php";
+    
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
 
+    $pseudo = $_SESSION['pseudo'];
+    $courriel = ObtenirCourrielUserPourForm($pseudo);
+    var_dump($courriel);
     $id = filter_input(INPUT_POST,"offre", FILTER_DEFAULT) + 1;
 
     $infos = ObtenirInfoPourFormulaire($id);
@@ -36,15 +44,7 @@
                 <a href="">Historique de réservations</a>
             </div>
         </div>
-        <!-- <div class="déroulant" >
-            <span href="">Paramètres</span>
 
-            <div class="déroulantMenu">    
-                <a href="">Notifications</a>
-                <a href="">Favoris</a>
-                <a href="">Langue</a>
-            </div>
-        </div> -->
         <div class="déroulantForm" >
             <span href="">Gérer mon compte</span>
 
@@ -64,12 +64,16 @@
                     <legend>Informations personnelles</legend>
                     <div>
                         <label for="Pseudo">Pseudo :</label>
-                        <input type="text" id="pseudo" name="pseudo" required>
+                        <?php
+                            echo '<input type="text" id="pseudo" name="pseudo" value="'.$pseudo.'" required>'
+                        ?>     
                     </div>
 
                     <div>
                         <label for="email">Adresse e-mail :</label>
-                        <input type="email" id="email" name="email" required>
+                        <?php
+                            echo'<input type="email" id="email" name= "email" value="'.$courriel.'" required>'
+                        ?>
                     </div>
                 </fieldset>
 

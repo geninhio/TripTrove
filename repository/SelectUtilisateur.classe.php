@@ -32,6 +32,10 @@ class SelectUtilisateur extends Select
     
             $user = $pdoRequete->fetch(PDO::FETCH_OBJ);
 
+            if($user == $false){
+                return $false;
+            }
+            
             $this->user->setId($user->IdUtilisateur);
             $this->user->setPseudo($user->Pseudo);
             $this->user->setMdp($user->mdp);

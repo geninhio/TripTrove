@@ -240,3 +240,19 @@ function ObtenirInfoPourFormulaire($id){
 
     return $infos;
 }
+
+function ObtenirCourrielUserPourForm($pseudo){
+
+    $requeteUtilisateur = new SelectUtilisateur($pseudo);
+    $courriel = $requeteUtilisateur->selectCourrielUtilisateur();
+
+    return $courriel;
+}
+
+function ObtenirIdUtilisateur($pseudo){
+
+    $requeteUtilisateur = new SelectUtilisateur($pseudo);
+    $id = $requeteUtilisateur->select()->getId();
+
+    return $id;
+}

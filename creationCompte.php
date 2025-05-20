@@ -1,6 +1,14 @@
 <?php
-    $erreur = $_GET["erreur"];
-    $pseudo = $_GET["pseudo"];
+    if (isset($_GET["erreur"]) && isset($_GET["pseudo"])) {
+        
+        $erreur = $_GET["erreur"];
+        $pseudo = $_GET["pseudo"];
+    }
+    else {
+        $erreur = null;
+        $pseudo = null;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +21,11 @@
 </head>
 <body>
     <main>
-        <?php
+
+        <div class="conteneur">
+            <h2>Créer un Compte</h2>
+
+            <?php
             if (!($erreur == null)) {
                 
                 echo'<div style="display: flex; flex-direction: row; justify-content: center;">
@@ -23,9 +35,8 @@
                 <h3 style="color:rgb(189, 10, 10); display: none">Attention ce pseudo est déjà pris!!!</h3></div>';
             }
 
-        ?>
-        <div class="conteneur">
-            <h2>Créer un Compte</h2>
+            ?>
+            
             <form action="./gestionCreationCompte.php" method="Post">
                 <fieldset>
                     <legend>Informations personnelles</legend>

@@ -1,9 +1,9 @@
 <?php
-        require_once __DIR__."/Controller/SessionFinale.php";
-    
-        // $session = new SessionFinale();
-        // session_start();
-        // $session->validerSession();
+    require_once __DIR__."/Controller/SessionFinale.php";
+
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
 
 ?>
 
@@ -28,24 +28,16 @@
             <span>Mes réservations&nbsp;</span>
 
             <div class="déroulantMenu">    
-                <a href="">Historique de réservations</a>
+                <a href="historique.php">Historique de réservations</a>
                 <a href="reservation.php">Nouvelle réservation</a>
             </div>
         </div>
-        <!-- <div class="déroulant" >
-            <span href="">Paramètres</span>
 
-            <div class="déroulantMenu">    
-                <a href="">Notifications</a>
-                <a href="">Favoris</a>
-                <a href="">Langue</a>
-            </div>
-        </div> -->
         <div class="déroulant" >
-            <span href="">Gérer mon compte</span>
+            <span >Gérer mon compte</span>
 
             <div class="déroulantMenu">    
-                <a href="">Déconnexion</a>
+                <a href="deconnexion.php">Déconnexion</a>
             </div>
         </div>
         <script src="./JS/formulaires.js"></script>
